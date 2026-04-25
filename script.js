@@ -12,7 +12,6 @@ async function getQuote() {
         text.value = "Loading..."
         text.value = `${data.quote} - ${data.author}`
         img.src = `https://picsum.photos/600/300?${Date.now()}` 
-    
     }
         catch (err) {
             console.log(err)
@@ -53,7 +52,7 @@ async function getQuote() {
 ========================= */
 function speak(){   
    
-    const textarea = document.getElementById("speechInput");
+    const textarea = document.getElementById("customText");
     const text = textarea.value;
 
     speechSynthesis.cancel();
