@@ -1,24 +1,26 @@
-/* ----------------------
-     RANDOM QUOTE
------------------------*/
-
-async function getQuote() {
-    try {
-        const img = document.getElementById("img")
+/* ================================
+RANDOM QOUTE
+==================================*/
+async function getQuote() 
+{
+    try
+    {
         const text = document.getElementById("customText")
-        const res = await fetch("https://dummyjson.com/quotes/random")
-        const data = await res.json()    
+        const img = document.getElementById("img")
+        const res =  await fetch("https://dummyjson.com/quotes/random")
+        const data = await res.json()
+        text.value = "Lodeng..."
+        text.value =   `${data.quote} - ${data.author}`
+        img.src = `https://picsum.photos/600/300?${Date.now()}`
         
-        text.value = "Loading..."
-        text.value = `${data.quote} - ${data.author}`
-        img.src = `https://picsum.photos/600/300?${Date.now()}` 
+    }catch(err)
+    {
+        console.log(err)
     }
-        catch (err) {
-            console.log(err)
-        }
-    }
-
-   function loadVoices(){
+    
+    
+}
+function loadVoices(){
 
     const select = document.getElementById("voiceSelect");
     select.innerHTML = "";
@@ -79,4 +81,5 @@ function resumeSpeech(){ speechSynthesis.resume(); }
 function stopSpeech(){ speechSynthesis.cancel(); }
 speechSynthesis.onvoiceschanged = loadVoices;
 
-    getQuote()
+
+getQuote()
